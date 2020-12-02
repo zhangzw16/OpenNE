@@ -18,7 +18,7 @@ class BasicWalker:
         self.node_size = G.nodesize
         self.look_up_dict = G.look_up_dict
         self.silent = silent
-        self.workers = None  # workers
+        self.workers = workers  # workers
 
     def rwalk(self, walk_length, start_node):
         """

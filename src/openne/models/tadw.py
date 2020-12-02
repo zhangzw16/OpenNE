@@ -43,7 +43,7 @@ class TADW(ModelWithEmbeddings):
         # M = (A + A^2) / 2, A = adj (row-normalized adjmat)
         self.M = (self.adj + torch.mm(self.adj, self.adj)) / 2
         # T: text feature matrix (feature_size * node_num)
-        self.T = self.getT(graph)
+        self.T = self.getT(graph).type(torch.FloatTensor)
         self.node_size = graph.nodesize
         self.feature_size = self.T.shape[0]
         self.W = torch.randn(self.dim, self.node_size)

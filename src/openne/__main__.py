@@ -81,7 +81,7 @@ def addarg(arg, group, used_names, val, default=False, hlp=None, choices=None):
     return True
 
 
-def parse_args():
+def parse_args(userargv=None):
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter,
                             conflict_handler='resolve')
     devicegroup = parser.add_mutually_exclusive_group()
@@ -179,7 +179,7 @@ def parse_args():
         if shared_params:
             modelgroup.description = 'Shared params:\n{}'.format(' \n'.join(shared_params))
 
-    args = parser.parse_args()
+    args = parser.parse_args(userargv)
 
     return args
 
